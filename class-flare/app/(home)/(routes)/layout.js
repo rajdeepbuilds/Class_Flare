@@ -12,7 +12,10 @@ function homeLayout({children}) {
         <SideBarNavs />
       </div>
       <Header/>
-      {children}
+      <div className='ml-64 p-6'>
+        {children}
+      </div>
+      
     </div>
   );
 }
