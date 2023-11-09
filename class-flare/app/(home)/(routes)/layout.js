@@ -7,7 +7,7 @@ import Image from 'next/image';
 function homeLayout({children}) {
   return (
     <div>
-      <div className='h-full w-64 flex-col fixed insery-y-0 z-50'>
+      <div className='h-full w-64 flex flex-col fixed insery-y-0 z-50'>
         <SideBarNavs />
       </div>
       {children}
