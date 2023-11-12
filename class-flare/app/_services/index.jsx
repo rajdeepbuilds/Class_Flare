@@ -1,6 +1,22 @@
-const MASTER_URL="https://api-ap-south-1.hygraph.com/v2/"+NEXT_PUBLIC_HYGRAPH_KEY+"/master"
+import request,{gql} from "graphql-request"
 
-export const getCourseList()=>{
+const MASTER_URL="https://api-ap-south-1.hygraph.com/v2/"+process.env.NEXT_PUBLIC_HYGRAPH_KEY+"/master"
+
+export const getCourseList=async()=>{
     const query=gql`
+    query courseList {
+            courseLists {
+            free
+            id
+            name
+            tags
+            author
+            banner {
+                url
+                }
+            }
+        }
     `
+    const result=await request(MASTER_URL,query);
+    return result;
 }
