@@ -1,5 +1,6 @@
 import { DollarSign } from 'lucide-react';
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 
 function CourseList({courses}) {
@@ -12,7 +13,10 @@ function CourseList({courses}) {
                     gap-5 "
     >
       {courses.map((course, index) => (
-        <div key={index} className="border border-gray-200 rounded-lg p-2 cursor-pointer hover:border-green-500">
+        <Link href={'/course-preview/'+course.id}>
+        <div key={index}
+        
+        className="border border-gray-200 rounded-lg p-2 cursor-pointer hover:border-green-500">
           <Image
             src={course.banner.url}
             alt={course.name}
@@ -31,6 +35,7 @@ function CourseList({courses}) {
             <h2 className=" text-[14px]">{course.free ? "Free" : "Paid"}</h2>
           </div>
         </div>
+        </Link>
       ))}
     </div>
   );
